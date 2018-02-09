@@ -9,7 +9,7 @@ const chess = num => {
 		return null; 
 	}
 	let res = "";
-	let baseStr = ("* ").repeat(num / 2 + 1)
+	const baseStr = ("* ").repeat(num / 2 + 1)
 	for(let row = 0; row < num; row++) { 
 		res += baseStr.substring(row % 2, +num + row % 2) +"\n"; 
 	}
