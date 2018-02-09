@@ -36,5 +36,19 @@ QUnit.module('Тестируем функцию chess', function () {
 		assert.strictEqual(chess(8), expected);
 		assert.strictEqual(chess('8'), expected);
 	});
-
+	
+	QUnit.test('Шахматной доски 0 на 0 не бывает', function (assert) {
+		assert.strictEqual(chess(0), null);
+		assert.strictEqual(chess('0'), null);
+	});
+	
+	QUnit.test('Шахматной доски -1 на -1 не бывает', function (assert) {
+		assert.strictEqual(chess(-1), null);
+		assert.strictEqual(chess('-1'), null);
+	});
+	
+	QUnit.test('Шахматной доски Слава UA на Слава UA не бывает', function (assert) {
+		assert.strictEqual(chess(208161208187208176208178208176328565), null);
+		assert.strictEqual(chess('Слава UA'), null);
+	});
 });

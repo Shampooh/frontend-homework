@@ -1,12 +1,18 @@
 'use strict';
 
+const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
+
+const isPosInt = n => n | 0 == n && n > 1;
+
 const chess = num => {
-	var n = Number(num);  
-	if (n == 1) return null;
-	var res = '';
-	var baseStr = "";
-	for(var cell = 0; cell <= n; cell++) baseStr +=  (cell % 2) ? " " : "*";
-	for(var row = 0; row <n; row++) res += baseStr.substring(row % 2,n + row % 2) +"\n";
+	if (!isNumeric(+num) || !isPosInt(+num)) {
+		return null; 
+	}
+	let res = "";
+	let baseStr = ("* ").repeat(parseInt(+num / 2 + 1))
+	for(let row = 0; row < +num; row++) { 
+		res += baseStr.substring(row % 2, +num + row % 2) +"\n"; 
+	}
 	return res;
 };
  
